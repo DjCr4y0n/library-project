@@ -27,7 +27,7 @@ form.addEventListener('submit', function(event){
   let title = document.getElementById('title').value;
   let author = document.getElementById('author').value;
   let pages = document.getElementById('pages').value;
-  let isRead = document.getElementById('isRead').value;
+  let isRead = document.getElementById('isRead').checked;
 
   const data = new Book(title, author, pages, isRead);
   console.log(data);
@@ -35,9 +35,7 @@ form.addEventListener('submit', function(event){
   container.innerHTML = "";
   displayBooks();
   dialog.close();
-  title.value = "";
-  author.value = "";
-  pages.value = "0";
+  form.reset();
 });
 
 function createTile(element)
@@ -63,6 +61,11 @@ function createTile(element)
 
   var buttonsContainer = document.createElement("div");
   buttonsContainer.style.margin = "0px";
+  var read = document.createElement("button");
+  read.textContent = element.isRead;
+  read.style.height = "2em";
+
+  buttonsContainer.appendChild(read);
 
 
   newBook.appendChild(title);
