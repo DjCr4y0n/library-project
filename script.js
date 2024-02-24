@@ -1,4 +1,4 @@
-const myLibrary = ["Hobbit", "Star Wars", "King Arthur", "sss"];
+const myLibrary = [];
 
 
 function Book(title,author,pages,isRead) {
@@ -31,22 +31,53 @@ form.addEventListener('submit', function(event){
 
   const data = new Book(title, author, pages, isRead);
   console.log(data);
-  myLibrary.push(title);
+  myLibrary.push(data);
   container.innerHTML = "";
   displayBooks();
+  dialog.close();
+  title.value = "";
+  author.value = "";
+  pages.value = "0";
 });
+
+function createTile(element)
+{
+  var newBook = document.createElement("div");
+  newBook.className = "book";
+  newBook.style.border = "2px solid black";
+  newBook.style.textAlign = "center";
+  newBook.style.display = "flex";
+  newBook.style.flexDirection = "column";
+
+  var title = document.createElement("p");
+  title.textContent = element.title;
+  title.style.margin = "0px";
+  
+  var author = document.createElement("p");
+  author.textContent = element.author;
+  author.style.margin = "0px";
+
+  var pages = document.createElement("p");
+  pages.textContent = element.pages;
+  pages.style.margin = "0px";
+
+  var buttonsContainer = document.createElement("div");
+  buttonsContainer.style.margin = "0px";
+
+
+  newBook.appendChild(title);
+  newBook.appendChild(author);
+  newBook.appendChild(pages);
+  newBook.appendChild(buttonsContainer);
+
+  return newBook;
+}
 
 function displayBooks()
 {
     for(let book in myLibrary)
     {
-        var newBook = document.createElement("div");
-        newBook.className = "book";
-        newBook.textContent = myLibrary[book];
-        newBook.style.border = "2px solid black";
-        newBook.style.textAlign = "center";
-        newBook.style.height = "100px"
-        container.appendChild(newBook);
+      container.appendChild(createTile(myLibrary[book])); 
     }
 }
 displayBooks();
