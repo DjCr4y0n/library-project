@@ -1,12 +1,16 @@
-const myLibrary = ["Hobbit", "Star Wars", "King Arthur", "sss", "sss"];
+const myLibrary = ["Hobbit", "Star Wars", "King Arthur", "sss"];
 
 
-function Book() {
-  // the constructor...
+function Book(title,author,pages,isRead) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.isRead = isRead;
 }
-
+var container = document.querySelector(".container");
+const form = document.querySelector("form");
 const dialog = document.querySelector("dialog");
-const closeButton = document.querySelector("dialog button");
+const closeButton = document.querySelector(".close-button");
 const newBookButton = document.querySelector("dialog + button");
 
 newBookButton.addEventListener('click', () => {
@@ -17,11 +21,20 @@ closeButton.addEventListener("click", () => {
     dialog.close();
   });  
 
-function AddBookToLibrary() {
-  
-}
+form.addEventListener('submit', function(event){
+  event.preventDefault();
 
-var container = document.querySelector(".container");
+  let title = document.getElementById('title').value;
+  let author = document.getElementById('author').value;
+  let pages = document.getElementById('pages').value;
+  let isRead = document.getElementById('isRead').value;
+
+  const data = new Book(title, author, pages, isRead);
+  console.log(data);
+  myLibrary.push(title);
+  container.innerHTML = "";
+  displayBooks();
+});
 
 function displayBooks()
 {
