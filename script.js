@@ -7,6 +7,7 @@ function Book(title,author,pages,isRead) {
   this.pages = pages;
   this.isRead = isRead;
 }
+
 var container = document.querySelector(".container");
 const form = document.querySelector("form");
 const dialog = document.querySelector("dialog");
@@ -60,12 +61,26 @@ function createTile(element)
   pages.style.margin = "0px";
 
   var buttonsContainer = document.createElement("div");
+  buttonsContainer.className = "buttons-container";
   buttonsContainer.style.margin = "0px";
-  var read = document.createElement("button");
-  read.textContent = element.isRead;
-  read.style.height = "2em";
+  buttonsContainer.style.alignSelf = "flex-end";
 
-  buttonsContainer.appendChild(read);
+  var readBook = document.createElement("button");
+  readBook.textContent = element.isRead;
+  readBook.style.height = "2em";
+
+  var deleteBook = document.createElement("button");
+  deleteBook.textContent = "delete";
+  deleteBook.style.height = "2em";
+
+  deleteBook.addEventListener("click", function() {
+    const index = myLibrary.indexOf(element);
+    myLibrary.splice(index,1);
+    newBook.parentNode.removeChild(newBook);
+});
+
+  buttonsContainer.appendChild(readBook);
+  buttonsContainer.appendChild(deleteBook);
 
 
   newBook.appendChild(title);
@@ -76,6 +91,8 @@ function createTile(element)
   return newBook;
 }
 
+
+
 function displayBooks()
 {
     for(let book in myLibrary)
@@ -83,4 +100,3 @@ function displayBooks()
       container.appendChild(createTile(myLibrary[book])); 
     }
 }
-displayBooks();
