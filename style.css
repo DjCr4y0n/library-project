@@ -25,3 +25,35 @@ button
     row-gap: 5px;
     column-gap: 1px;
 }
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label
+{
+    gap: 8px;
+    display: flex;
+    flex-direction: column;   
+}
+
+input
+{
+    border-color: black;
+    border-style: solid;
+    height: 20px;
+    border-radius: 5px;
+    width: 20rem;
+}
+.required:not(:focus):not(:placeholder-shown):invalid
+{
+    border-color: red;
+}
+.required:valid
+{
+    border-color: green;
+    background-color: yellowgreen;
+}

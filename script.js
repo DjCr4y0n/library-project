@@ -5,8 +5,20 @@ function Book() {
   // the constructor...
 }
 
-function addBookToLibrary() {
-  // do stuff here
+const dialog = document.querySelector("dialog");
+const closeButton = document.querySelector("dialog button");
+const newBookButton = document.querySelector("dialog + button");
+
+newBookButton.addEventListener('click', () => {
+    dialog.showModal();
+  });
+
+closeButton.addEventListener("click", () => {
+    dialog.close();
+  });  
+
+function AddBookToLibrary() {
+  
 }
 
 var container = document.querySelector(".container");

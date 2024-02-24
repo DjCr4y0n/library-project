@@ -8,6 +8,32 @@
     <title>Document</title>
 </head>
 <body>
+    <dialog>
+        <form>
+
+            <label for="title">
+                *Title of the book: 
+                <input class="required" type="text" id="title" placeholder="Hobbit" required>
+            </label>
+
+            <label for="author">
+                *Name of author:
+                <input class="required" type="text" id="author" placeholder="J.R.R Tolkien" required>
+            </label>
+
+            <label for="pages">
+                Number of pages:
+                <input type="number" id="pages" placeholder="100">
+            </label>
+
+            <label for="isRead">
+                Has it been already read?
+                <input type="checkbox" id="isRead" value="yes">
+            </label>
+
+            <button>Close</button>
+        </form>
+    </dialog>
     <button>NEW BOOK</button>
     <div class="container">
 
