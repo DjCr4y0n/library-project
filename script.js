@@ -12,7 +12,7 @@ var container = document.querySelector(".container");
 const form = document.querySelector("form");
 const dialog = document.querySelector("dialog");
 const closeButton = document.querySelector(".close-button");
-const newBookButton = document.querySelector("dialog + button");
+const newBookButton = document.querySelector(".new");
 
 newBookButton.addEventListener('click', () => {
     dialog.showModal();
