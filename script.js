@@ -112,6 +112,12 @@ function createTile(element)
   deleteBookIcon.alt = 'Delete-Icon'
   deleteBook.style.border = "none";
   deleteBook.style.backgroundColor = "white";
+  deleteBook.addEventListener('mouseover', () =>{
+    deleteBookIcon.style.filter = 'invert(12%) sepia(94%) saturate(6714%) hue-rotate(360deg) brightness(106%) contrast(112%)';
+  });
+  deleteBook.addEventListener('mouseout', () => {
+    deleteBookIcon.style.filter = 'invert(0%) sepia(100%) saturate(16%) hue-rotate(274deg) brightness(100%) contrast(103%)';
+  })
   deleteBook.appendChild(deleteBookIcon);
 
   deleteBook.addEventListener("click", function() {
