@@ -66,12 +66,41 @@ function createTile(element)
   buttonsContainer.style.alignSelf = "flex-end";
 
   var readBook = document.createElement("button");
-  readBook.textContent = element.isRead;
-  readBook.style.height = "2em";
+  readBook.style.border = "none";
+  readBook.style.backgroundColor = "white";
+  var readBookIcon = document.createElement('img');
+  readBookIcon.alt = "Was-Read-Icon";
+
+  if(element.isRead == false)
+  {
+    readBookIcon.src = "check-circle.svg";
+  }
+  else
+  {
+    readBookIcon.src = "x-circle.svg";
+  }
+  readBook.appendChild(readBookIcon);
+
+  readBook.addEventListener('click', function() {
+    if(element.isRead == false)
+  {
+    element.isRead = true;
+    readBookIcon.src = "x-circle.svg";
+  }
+  else
+  {
+    element.isRead = false;
+    readBookIcon.src = "check-circle.svg";
+  }
+  });
 
   var deleteBook = document.createElement("button");
-  deleteBook.textContent = "delete";
-  deleteBook.style.height = "2em";
+  var deleteBookIcon = document.createElement("img");
+  deleteBookIcon.src = 'trash-2.svg'
+  deleteBookIcon.alt = 'Delete-Icon'
+  deleteBook.style.border = "none";
+  deleteBook.style.backgroundColor = "white";
+  deleteBook.appendChild(deleteBookIcon);
 
   deleteBook.addEventListener("click", function() {
     const index = myLibrary.indexOf(element);
