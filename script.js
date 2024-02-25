@@ -44,26 +44,38 @@ function createTile(element)
   var newBook = document.createElement("div");
   newBook.className = "book";
   newBook.style.border = "2px solid black";
-  newBook.style.textAlign = "center";
+  newBook.style.borderRadius = "16px";
+  newBook.style.alignItems = "left";
   newBook.style.display = "flex";
   newBook.style.flexDirection = "column";
+  newBook.style.gap = "5px";
 
-  var title = document.createElement("p");
+  var infoContainer = document.createElement("div");
+  infoContainer.className = "info";
+  infoContainer.style.padding = "20px";
+
+  var title = document.createElement("h1");
   title.textContent = element.title;
   title.style.margin = "0px";
   
   var author = document.createElement("p");
-  author.textContent = element.author;
+  author.textContent = "By: "+element.author;
   author.style.margin = "0px";
+  author.style.fontSize = "1.5em";
+  author.style.marginTop = "5px";
 
   var pages = document.createElement("p");
-  pages.textContent = element.pages;
+  pages.textContent = "Number of pages: "+element.pages;
   pages.style.margin = "0px";
+  pages.style.fontSize = "1.5em";
+  pages.style.marginTop = "5px";
+
 
   var buttonsContainer = document.createElement("div");
   buttonsContainer.className = "buttons-container";
   buttonsContainer.style.margin = "0px";
   buttonsContainer.style.alignSelf = "flex-end";
+  buttonsContainer.style.margin = "0px 10px 0px 10px"
 
   var readBook = document.createElement("button");
   readBook.style.border = "none";
@@ -112,9 +124,10 @@ function createTile(element)
   buttonsContainer.appendChild(deleteBook);
 
 
-  newBook.appendChild(title);
-  newBook.appendChild(author);
-  newBook.appendChild(pages);
+  infoContainer.appendChild(title);
+  infoContainer.appendChild(author);
+  infoContainer.appendChild(pages);
+  newBook.appendChild(infoContainer);
   newBook.appendChild(buttonsContainer);
 
   return newBook;

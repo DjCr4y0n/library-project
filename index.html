@@ -6,23 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <dialog>
         <form>
             <label for="title">
-                *Title of the book: 
+                Title of the book* 
                 <input class="required" type="text" id="title" placeholder="Hobbit" required>
             </label>
 
             <label for="author">
-                *Name of author:
+                Name of author*
                 <input class="required" type="text" id="author" placeholder="J.R.R Tolkien" required>
             </label>
 
             <label for="pages">
-                Number of pages:
-                <input type="number" id="pages" value="0">
+                Number of pages*
+                <input type="number" id="pages" placeholder="0" required>
             </label>
 
             <label for="isRead">
@@ -41,7 +45,7 @@
     </div>
 
     <div class="main">
-        <button class="new">NEW BOOK</button>
+        <button class="new">+</button>
 
         <div class="container"></div>
     </div>
