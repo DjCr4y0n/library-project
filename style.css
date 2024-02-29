@@ -34,26 +34,30 @@ body, html
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: 0 3rem 0 3rem;
 }
 
 .footer
 {
     width: 100%;
-    height: 2em;
+    height: 2rem;
     background-color: #888888;
 }
 
 .new
 {
-    position: fixed;
-    bottom: 32px;
-    right: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    padding: 0;
     align-self: center;
-    height: 100px;
-    width: 150px;
+    height: 6rem;
+    width: 6rem;
     border-radius: 16px;
+    border: none;
     font-size: large;
+    background-color: green;
+    box-shadow: inset 3px 3px 20px -2px #ffffff;
 }
 
 .container
@@ -65,7 +69,7 @@ body, html
     align-self: center;
     width: 100%;
     display: grid;
-    grid-template: auto / repeat(auto-fit, minmax(250px, 1fr));
+    grid-template: auto / repeat(auto-fit, minmax(20rem, 1fr));
     row-gap: 15px;
     column-gap: 20px;
 }
