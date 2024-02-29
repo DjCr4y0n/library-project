@@ -20,6 +20,7 @@ newBookButton.addEventListener('click', () => {
 
 closeButton.addEventListener("click", () => {
     dialog.close();
+    form.reset();
   });  
 
 form.addEventListener('submit', function(event){
@@ -31,8 +32,20 @@ form.addEventListener('submit', function(event){
   let isRead = document.getElementById('isRead').checked;
 
   const data = new Book(title, author, pages, isRead);
+
   console.log(data);
   myLibrary.push(data);
+
+  for (let i = 0; i < myLibrary.length-1; i++)
+  {
+    if (myLibrary[i].author == data.author && myLibrary[i].title == data.title)
+    {
+      myLibrary.pop();
+      dialog.close();
+      form.reset();
+      alert("You have already add this book")   
+    }
+  }
   container.innerHTML = "";
   displayBooks();
   dialog.close();
