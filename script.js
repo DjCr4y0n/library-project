@@ -49,10 +49,11 @@ function createTile(element)
   newBook.style.display = "flex";
   newBook.style.flexDirection = "column";
   newBook.style.gap = "5px";
+  newBook.style.minWidth = "100px";
 
   var infoContainer = document.createElement("div");
   infoContainer.className = "info";
-  infoContainer.style.padding = "20px";
+  infoContainer.style.padding = "15px";
 
   var title = document.createElement("h1");
   title.textContent = element.title;
@@ -75,34 +76,76 @@ function createTile(element)
   buttonsContainer.className = "buttons-container";
   buttonsContainer.style.margin = "0px";
   buttonsContainer.style.alignSelf = "flex-end";
-  buttonsContainer.style.margin = "0px 10px 0px 10px"
+  buttonsContainer.style.margin = "0px 10px 0px 10px";
+  buttonsContainer.style.display = 'flex';
+  buttonsContainer.style.gap = '9px';
 
   var readBook = document.createElement("button");
   readBook.style.border = "none";
   readBook.style.backgroundColor = "white";
+  readBook.style.padding = "0px";
   var readBookIcon = document.createElement('img');
   readBookIcon.alt = "Was-Read-Icon";
 
   if(element.isRead == false)
   {
     readBookIcon.src = "check-circle.svg";
+    readBook.addEventListener('mouseover', () =>{
+      readBookIcon.style.filter = 'invert(50%) sepia(17%) saturate(4692%) hue-rotate(83deg) brightness(123%) contrast(130%)';
+    });
+
+    readBook.addEventListener('mouseout', () => {
+      readBookIcon.style.filter = 'invert(0%) sepia(100%) saturate(16%) hue-rotate(274deg) brightness(100%) contrast(103%)';
+    })
+
+    newBook.style.borderLeft = "15px solid red";
   }
   else
   {
     readBookIcon.src = "x-circle.svg";
+    readBook.addEventListener('mouseover', () =>{
+      readBookIcon.style.filter = 'invert(12%) sepia(94%) saturate(6714%) hue-rotate(360deg) brightness(106%) contrast(112%)';
+    });
+
+    readBook.addEventListener('mouseout', () => {
+      readBookIcon.style.filter = 'invert(0%) sepia(100%) saturate(16%) hue-rotate(274deg) brightness(100%) contrast(103%)';
+    })
+
+    newBook.style.borderLeft = "15px solid green";
   }
   readBook.appendChild(readBookIcon);
 
   readBook.addEventListener('click', function() {
+    readBookIcon.style.filter = 'invert(0%) sepia(100%) saturate(16%) hue-rotate(274deg) brightness(100%) contrast(103%)';
     if(element.isRead == false)
   {
     element.isRead = true;
     readBookIcon.src = "x-circle.svg";
+
+    readBook.addEventListener('mouseover', () =>{
+      readBookIcon.style.filter = 'invert(12%) sepia(94%) saturate(6714%) hue-rotate(360deg) brightness(106%) contrast(112%)';
+    });
+
+    readBook.addEventListener('mouseout', () => {
+      readBookIcon.style.filter = 'invert(0%) sepia(100%) saturate(16%) hue-rotate(274deg) brightness(100%) contrast(103%)';
+    })
+
+    newBook.style.borderLeft = "15px solid green";
   }
   else
   {
     element.isRead = false;
     readBookIcon.src = "check-circle.svg";
+
+    readBook.addEventListener('mouseover', () =>{
+      readBookIcon.style.filter = 'invert(50%) sepia(17%) saturate(4692%) hue-rotate(83deg) brightness(123%) contrast(130%)';
+    });
+
+    readBook.addEventListener('mouseout', () => {
+      readBookIcon.style.filter = 'invert(0%) sepia(100%) saturate(16%) hue-rotate(274deg) brightness(100%) contrast(103%)';
+    })
+
+    newBook.style.borderLeft = "15px solid red";
   }
   });
 
